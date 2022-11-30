@@ -1,0 +1,39 @@
+.contenido{
+    text-align: center;
+    margin: auto;
+    padding: 20px 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    color: coral;
+    text-decoration:underline;
+}
+#formulario{
+    column-count:2;
+    column-gap:100px;
+    column-rule: 1px solid black;
+}
+.columna1 ,.columna2{
+    column-count:1;
+    column-gap:100px;
+    column-rule: 1px solid black;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 0px 40px 40px 40px;
+    font-size:20px;
+}
+#titulo{
+    font-size: 28px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+button{
+    background-color: cornflowerblue;
+    border-radius:5px;
+    font-size: 20px;
+}
+button:hover{
+    background-color:royalblue;
+}
+#imagen{
+    width: 35px;
+    height: 35px;
+    padding: 4px 7px 0 5px;
+}
