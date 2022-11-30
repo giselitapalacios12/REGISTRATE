@@ -100,10 +100,10 @@ document.getElementById("ingresar5").addEventListener("click", function(){
     // ...
     alert("BIENVENIDO DE NUEVO!")
   // ABRIREMOS UNA NUEVA PAGINA NUEVA
-  window.open("https://www.facebook.com")
+  //window.open("https://www.facebook.com")
 
   //ABRIREMOS NUESTRA PROPIA PAGINA
-  //window.open("https://www.facebook.com/", "mi pagina favorita" , "width=400px, height=400px")
+  window.open("prueba.html", "mi pagina favorita" , "width=400px, height=400px")
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -127,7 +127,7 @@ document.getElementById("google").addEventListener("click",function(){
     const token = credential.accessToken;
 
     //te llevara a otra pagina
-    window.open("prueba.html" , "mi pagina favorita" , "width=400px, height=400px")
+    window.open("https://www.facebook.com/")
 
     // The signed-in user info.
     const user = result.user;
