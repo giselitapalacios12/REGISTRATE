@@ -26,6 +26,7 @@
       <button type="reset" id="limpiar" onclick="limpiar()">BORRAR</button>
     </div>
     </form>
+    <button id="google">INICIAR CON GOOGLE</button>
 
     <div class="columna1">
 
@@ -48,7 +49,11 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-        
+        import { GoogleAuthProvider, signInWithRedirect , getRedirectResult } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+    
+        // Your web app's Firebase configuration
         const firebaseConfig = {
         apiKey: "AIzaSyBiXOKpOW8vF6VAG1G7acExjbaMUnq4LLE",
         authDomain: "gisela-52f74.firebaseapp.com",
@@ -61,6 +66,8 @@
         // Initialize Firebase y Autenticación
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const provider = new GoogleAuthProvider(app);
+
 
         document.getElementById("ingresar").addEventListener("click", function(){
     const email = document.getElementById("email").value;
@@ -96,7 +103,14 @@ document.getElementById("ingresar5").addEventListener("click", function(){
   //window.open("https://www.facebook.com")
 
   //ABRIREMOS NUESTRA PROPIA PAGINA
-  
+  window.open("https://www.facebook.com/")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert("No estas en el sistema")
+  });
+
 })
 
 //Crear una fncion para limpiar los contenido de los datos ingresados
@@ -113,10 +127,18 @@ document.getElementById("google").addEventListener("click",function(){
     const token = credential.accessToken;
 
     //te llevara a otra pagina
-    window.open("https://www.facebook.com/")
+    window.open("prueba.html" , "mi pagina favorita" , "width=400px, height=400px")
 
     // The signed-in user info.
-
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
 
