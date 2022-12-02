@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Imagenes y Videos</title>
+</head>
+<body>
+    <!-- agrego un boton para ingresar imagenes y videos -->
+    <input type="file" name="" id="img">
+    <br>
+    <button id="boton">SUBIR</button>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getStorage, ref, uploadBytes} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBiXOKpOW8vF6VAG1G7acExjbaMUnq4LLE",
+          authDomain: "gisela-52f74.firebaseapp.com",
+          projectId: "gisela-52f74",
+          storageBucket: "gisela-52f74.appspot.com",
+          messagingSenderId: "696724182203",
+          appId: "1:696724182203:web:a787851c45734d218b459e"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+
+        // crearemos un evento para que al oprimir el boton se guarde la información
+        document.getElementById("boton").addEventListener("click", function(){
+            var file = document.getElementById("img").files[0]
+
+            const storage = getStorage();
+            const storageRef = ref(storage, 'uploadedimage');
+
+          // 'file' comes from the Blob or File API
+            uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+            alert("el archivo esta cargado")
+            });
+
+        })
+
+      </script>
+</body>
+</html>
